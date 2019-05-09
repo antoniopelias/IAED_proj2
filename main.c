@@ -14,12 +14,12 @@
 #define TELEFONE 64
 
 void adiciona_contacto(Todos *todos);
-void procura_contacto(Todos *todos, char nome[NOME]);
+void lista(Todos *todos);
+void procura_contacto(Todos *todos);
 
 int main()
 {
     int comando;
-    char nome[NOME];
     Todos *todos;
     todos = init_todos();
     comando = getchar();
@@ -30,12 +30,10 @@ int main()
                 adiciona_contacto(todos);
                 break;
             case 'l':
-                getchar();
-                lista_contactos(todos->lista);
+                lista(todos);
                 break;
             case 'p':
-                scanf("%s", nome);
-                procura_contacto(todos, nome);
+                procura_contacto(todos);
                 break;
             /*case 'r':
                 scanf("%s", nome);
@@ -74,10 +72,18 @@ void adiciona_contacto(Todos *todos)
     }
 }
 
-/* procura um contacto e imprime-o */
-void procura_contacto(Todos *todos, char nome[NOME])
+void lista(Todos *todos)
 {
+    getchar();
+    lista_contactos(todos->lista);
+}
+
+/* procura um contacto e imprime-o */
+void procura_contacto(Todos *todos)
+{
+    char nome[NOME];
     Contacto *contacto;
+    scanf("%s", nome);
     contacto = encontra_contacto(todos->tabela_nomes, nome);
     if (contacto != NULL)
         print_contacto(contacto);
