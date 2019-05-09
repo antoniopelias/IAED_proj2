@@ -15,3 +15,4 @@ typedef struct email
 void liberta_contacto(Contacto *contacto);
 void print_contacto(Contacto *contacto);
 Contacto *cria_contacto(char nome[], char email[], char telefone[]);
+Email *cria_email(char email[]);
