@@ -14,3 +14,11 @@ Todos * init_todos()
     novo->tabela_nomes = init_tabela();
     return novo;
 }
+
+/* liberta toda a memoria dos contactos */
+void liberta_tudo(Todos *todos)
+{
+    liberta_lista(todos->lista);
+    liberta_tabela(todos->tabela_nomes);
+    free(todos);
+}

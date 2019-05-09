@@ -6,3 +6,4 @@ typedef struct todos
 } Todos;
 
 Todos * init_todos();
+void liberta_tudo(Todos *todos);

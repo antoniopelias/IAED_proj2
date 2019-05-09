@@ -50,9 +50,7 @@ int main()
         }
         comando = getchar();
     }
-    liberta_lista(todos->lista);
-    liberta_tabela(todos->tabela_nomes);
-    free(todos);
+    liberta_tudo(todos);
     return 0;
 }
 
