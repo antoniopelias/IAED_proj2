@@ -23,16 +23,22 @@ void liberta_contacto(Contacto *contacto)
 {
     if (contacto != NULL)
     {
-        if (contacto->email != NULL)
-        {
-            free(contacto->email->local);
-            free(contacto->email->dominio);
-        }    
+        liberta_email(contacto->email);
         free(contacto->telefone);
         free(contacto->nome);
-        free(contacto->email);
     }
     free(contacto);    
+}
+
+/* liberta o espaco de memoria associado a um email */
+void liberta_email(Email *email)
+{
+    if (email != NULL)
+    {
+        free(email->local);
+        free(email->dominio);
+    }    
+    free(email);    
 }
 
 /* cria um contacto com o nome, email e telefone dados */
