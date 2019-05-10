@@ -5,6 +5,6 @@ typedef struct todos
     struct no **tabela_nomes, **tabela_dominios;
 } Todos;
 
-Todos * init_todos();
+Todos *init_todos();
 void liberta_tudo(Todos *todos);
 void apaga_contacto(Todos *todos, Contacto *contacto);

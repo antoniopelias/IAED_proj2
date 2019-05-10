@@ -85,7 +85,6 @@ void apaga_da_tabela(char tipo, Link *tabela, Contacto *contacto)
         id = hash(contacto->nome, DIMTABELA);
     else
         id = hash(contacto->email->dominio, DIMTABELA);
-    
     aux = tabela[id];
     if (tabela[id]->proximo == NULL || strcmp(contacto->nome, aux->contacto->nome) == 0)
     {

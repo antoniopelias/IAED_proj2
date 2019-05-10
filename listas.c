@@ -33,7 +33,8 @@ void lista_contactos(Lista *lista)
 {
     Contacto *aux;
     aux = lista->primeiro;
-    while(aux != NULL){
+    while(aux != NULL)
+    {
         print_contacto(aux);
         aux = aux->proximo;
     }
@@ -60,7 +61,6 @@ void apaga_da_lista(Lista *lista, Contacto *contacto)
         contacto->anterior->proximo = contacto->proximo;
     else
         lista->primeiro = contacto->proximo;
-    
     if (contacto->proximo != NULL)
         contacto->proximo->anterior = contacto->anterior;
     else
