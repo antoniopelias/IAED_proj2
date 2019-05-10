@@ -1,11 +1,6 @@
 #include "contactos.h"
-#include "todos.h"
-#include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include "listas.h"
-#include "tabelas.h"
-#define DIMTABELA 1021
 
 /* inicializa uma lista de contactos */
 Lista *init_lista()

@@ -1,10 +1,7 @@
 #include "contactos.h"
-#include "todos.h"
-#include <stdio.h>
+#include "tabelas.h"
 #include <string.h>
 #include <stdlib.h>
-#include "listas.h"
-#include "tabelas.h"
 #define DIMTABELA 1021
 #define TABN 'n'
 #define TABD 'd'

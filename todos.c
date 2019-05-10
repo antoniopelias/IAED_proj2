@@ -1,10 +1,8 @@
 #include "contactos.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #include "listas.h"
 #include "tabelas.h"
 #include "todos.h"
+#include <stdlib.h>
 #define TABN 'n'
 #define TABD 'd'
 
@@ -27,6 +25,7 @@ void liberta_tudo(Todos *todos)
     free(todos);
 }
 
+/* apaga um contacto de todas as estruturas */
 void apaga_contacto(Todos *todos, Contacto *contacto)
 {
     apaga_da_lista(todos->lista, contacto);

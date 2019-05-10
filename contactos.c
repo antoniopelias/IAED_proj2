@@ -2,10 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "listas.h"
-#include "tabelas.h"
-#include "todos.h"
-#define DIMTABELA 1021
 #define EMAIL 512
 
 /* imprime o nome email e telefone do contacto no formato especificado */

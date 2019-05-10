@@ -1,11 +1,10 @@
 #include "contactos.h"
 #include "todos.h"
+#include "listas.h"
+#include "tabelas.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "listas.h"
-#include "tabelas.h"
-#define DIMTABELA 1021
 
 #define NOME 1024
 #define EMAIL 512
