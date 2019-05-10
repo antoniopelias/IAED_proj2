@@ -18,6 +18,7 @@ void lista(Todos *todos);
 void procura_contacto(Todos *todos);
 void remove_contacto(Todos *todos);
 void altera_email(Todos *todos);
+void conta_dominio(Todos *todos);
 
 int main()
 {
@@ -43,10 +44,9 @@ int main()
             case 'e':
                 altera_email(todos);
                 break;
-            /*case 'c':
-                scanf("%s", email);
-                conta_dominio(lista, email);
-                break; */
+            case 'c':
+                conta_dominio(todos);
+                break;
         }
         comando = getchar();
     }
@@ -117,4 +117,14 @@ void altera_email(Todos *todos)
         contacto->email = cria_email(email);
     } else 
         printf("Nome inexistente.\n");
+}
+
+/* conta o numero de ocorrencias de um dominio */
+void conta_dominio(Todos *todos)
+{
+    char dominio[EMAIL];
+    int n;
+    scanf("%s", dominio);
+    n = num_ocorencias(todos->tabela_dominios, dominio);
+    printf("%s:%d\n", dominio, n);
 }

@@ -13,3 +13,4 @@ Contacto *encontra(Link *tabela, char nome[]);
 void liberta_tabela(Link *tabela);
 void liberta_link(Link no);
 void apaga_da_tabela(char tipo, Link *tabela, Contacto *contacto);
+int num_ocorencias(Link *tabela, char dominio[]);

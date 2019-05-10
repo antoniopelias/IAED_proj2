@@ -109,3 +109,19 @@ void apaga_da_tabela(char tipo, Link *tabela, Contacto *contacto)
         } 
     }
 }
+
+/* retorna o numero de ocorrencias de um dado dominio */
+int num_ocorencias(Link *tabela, char dominio[])
+{
+    int id, n = 0;
+    Link aux;
+    id = hash(dominio, DIMTABELA);
+    aux = tabela[id];
+    while (aux != NULL)
+    {
+        if ( strcmp(dominio, aux->contacto->email->dominio) == 0 )
+            n++;
+        aux = aux->proximo;
+    }
+    return n;
+}
