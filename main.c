@@ -15,6 +15,7 @@ void adiciona_contacto(Todos *todos);
 void lista(Todos *todos);
 void procura_contacto(Todos *todos);
 void remove_contacto(Todos *todos);
+void altera_email(Todos *todos);
 
 int main()
 {
@@ -37,11 +38,10 @@ int main()
             case 'r':
                 remove_contacto(todos);
                 break;
-            /*case 'e':
-                scanf("%s %s", nome, email);
-                altera_email(lista, nome, email);
+            case 'e':
+                altera_email(todos);
                 break;
-            case 'c':
+            /*case 'c':
                 scanf("%s", email);
                 conta_dominio(lista, email);
                 break; */
@@ -99,4 +99,19 @@ void remove_contacto(Todos *todos)
         apaga_contacto(todos, velho_contacto);
     else 
         printf("Nome inexistente.\n");
-}   
+}
+
+/* altera o email de um contacto */
+void altera_email(Todos *todos)
+{
+    char nome[NOME], email[EMAIL];
+    Contacto *contacto;
+    scanf("%s %s", nome, email);
+    contacto = encontra_contacto(todos->tabela_nomes, nome);
+    if (contacto != NULL)
+    {
+        liberta_email(contacto->email);
+        contacto->email = cria_email(email);
+    } else 
+        printf("Nome inexistente.\n");
+}
