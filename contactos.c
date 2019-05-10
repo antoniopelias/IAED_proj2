@@ -1,3 +1,8 @@
+/*
+ *  Antonio Elias
+ *  93690
+ *  contactos.c
+ */
 #include "contactos.h"
 #include <stdio.h>
 #include <string.h>

@@ -1,3 +1,8 @@
+/*
+ *  Antonio Elias
+ *  93690
+ *  todos.h
+ */
 /* estrutura que aponta para as outras estruturas em que estao guardados os contactos*/
 typedef struct todos
 {

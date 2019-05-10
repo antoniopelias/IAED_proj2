@@ -1,3 +1,9 @@
+/*
+ *  Antonio Elias
+ *  93690
+ *  tabelas.c
+ */
+
 /* tabela de contactos */
 typedef struct no
 {

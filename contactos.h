@@ -1,3 +1,9 @@
+/*
+ *  Antonio Elias
+ *  93690
+ *  contactos.h
+ */
+
 /* contacto que aponta para o que foi adicionado anteriormente e depois */
 typedef struct contacto
 {

@@ -1,3 +1,9 @@
+/*
+ *  Antonio Elias
+ *  93690
+ *  listas.h
+ */
+
 /* aponta para o primeiro contacto adicionado e para o adicionado mais recentemente */
 typedef struct lista
 {

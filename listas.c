@@ -1,3 +1,8 @@
+/*
+ *  Antonio Elias
+ *  93690
+ *  listas.h
+ */
 #include "contactos.h"
 #include <stdlib.h>
 #include "listas.h"
