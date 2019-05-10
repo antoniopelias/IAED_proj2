@@ -57,3 +57,22 @@ void liberta_lista(Lista *lista)
     }
     free(lista);
 }
+
+void apaga_da_lista(Lista *lista, Contacto *contacto)
+{
+    if (contacto->anterior != NULL)
+    {
+        contacto->anterior->proximo = contacto->proximo;
+    } else
+    {
+        lista->primeiro = contacto->proximo;
+    }
+    
+    if (contacto->proximo != NULL)
+    {
+        contacto->proximo->anterior = contacto->anterior;
+    } else
+    {
+        lista->ultimo = contacto->anterior;
+    }
+}

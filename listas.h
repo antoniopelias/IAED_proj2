@@ -9,3 +9,4 @@ Lista *introduz_lista(Lista *lista, Contacto *novo);
 void lista_contactos(Lista *lista);
 void liberta_lista(Lista *lista);
 void liberta_lista_head(Contacto *head);
+void apaga_da_lista(Lista *lista, Contacto *contacto);

@@ -7,3 +7,4 @@ typedef struct todos
 
 Todos * init_todos();
 void liberta_tudo(Todos *todos);
+void apaga_contacto(Todos *todos, Contacto *contacto);

@@ -72,8 +72,32 @@ void liberta_tabela(Link *tabela)
 /* liberta um link e o seu proximo */
 void liberta_link(Link no)
 {
-    
     if (no->proximo != NULL)
         liberta_link(no->proximo);
     free(no);
+}
+
+void apaga_da_tabela(Link *tabela, Contacto *contacto)
+{
+    int id;
+    Link aux;
+    id = hash(contacto->nome, DIMTABELA);
+    aux = tabela[id];
+    if (tabela[id]->proximo == NULL || strcmp(contacto->nome, aux->contacto->nome) == 0)
+    {
+        tabela[id] = tabela[id]->proximo;
+        free(aux);
+    } else
+    {
+        while (aux->proximo != NULL)
+        {
+            if (strcmp(contacto->nome, aux->proximo->contacto->nome) == 0)
+            {
+                free(aux->proximo);
+                aux->proximo = aux->proximo->proximo;
+                break;
+            }
+            aux = aux->proximo;
+        }
+    }
 }

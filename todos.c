@@ -22,3 +22,10 @@ void liberta_tudo(Todos *todos)
     liberta_tabela(todos->tabela_nomes);
     free(todos);
 }
+
+void apaga_contacto(Todos *todos, Contacto *contacto)
+{
+    apaga_da_lista(todos->lista, contacto);
+    apaga_da_tabela(todos->tabela_nomes, contacto);
+    liberta_contacto(contacto);
+}
