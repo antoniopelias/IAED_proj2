@@ -8,7 +8,6 @@
 #include "listas.h"
 #include "tabelas.h"
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 
 #define NOME 1024
