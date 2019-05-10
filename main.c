@@ -113,8 +113,10 @@ void altera_email(Todos *todos)
     contacto = encontra(todos->tabela_nomes, nome);
     if (contacto != NULL)
     {
+        apaga_da_tabela(TABD, todos->tabela_dominios, contacto);
         liberta_email(contacto->email);
         contacto->email = cria_email(email);
+        introduz_tabela(TABD, todos->tabela_dominios, contacto);
     } else 
         printf("Nome inexistente.\n");
 }
