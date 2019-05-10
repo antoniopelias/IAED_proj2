@@ -2,7 +2,7 @@
 typedef struct todos
 {
     struct lista *lista;
-    struct no **tabela_nomes;
+    struct no **tabela_nomes, **tabela_dominios;
 } Todos;
 
 Todos * init_todos();

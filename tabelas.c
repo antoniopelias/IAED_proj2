@@ -6,6 +6,8 @@
 #include "listas.h"
 #include "tabelas.h"
 #define DIMTABELA 1021
+#define TABN 'n'
+#define TABD 'd'
 
 /* faz a hash de uma string ate ao tamanho M */
 int hash(char *v, int M)
@@ -21,27 +23,28 @@ Link *init_tabela()
 {
     int i;
     Link *tabela;
-    tabela = malloc( DIMTABELA * sizeof(Link));
+    tabela = malloc( DIMTABELA * sizeof(Link) );
     for (i = 0; i < DIMTABELA; i++) 
         tabela[i] = NULL;
     return tabela;
 }
 
 /* introduz o novo contacto na tabela_nomes */
-void introduz_tab_nomes(Link * tabela_nomes, Contacto *novo_contacto)
+void introduz_tabela(char tipo, Link *tabela, Contacto *novo_contacto)
 {
     int id;
     Link novo_link = malloc(sizeof(struct no));
-    id = hash(novo_contacto->nome, DIMTABELA);
+    if (tipo == TABN)
+        id = hash(novo_contacto->nome, DIMTABELA);
+    else
+        id = hash(novo_contacto->email->dominio, DIMTABELA);
     novo_link->contacto = novo_contacto;
-    novo_link->proximo = tabela_nomes[id];
-    tabela_nomes[id] = novo_link;
+    novo_link->proximo = tabela[id];
+    tabela[id] = novo_link;
 }
 
-
-
 /* encontra o contacto a partir do seu nome, retornando o pointer para ele ou NULL caso nao encontre */
-Contacto * encontra_contacto(Link *tabela_nomes, char nome[])
+Contacto *encontra(Link *tabela_nomes, char nome[])
 {
     int id;
     Link aux;
@@ -77,11 +80,15 @@ void liberta_link(Link no)
 }
 
 /* retira um contacto de uma tabela */
-void apaga_da_tabela(Link *tabela, Contacto *contacto)
+void apaga_da_tabela(char tipo, Link *tabela, Contacto *contacto)
 {
     int id;
-    Link aux;
-    id = hash(contacto->nome, DIMTABELA);
+    Link aux, aux2;
+    if (tipo == TABN)
+        id = hash(contacto->nome, DIMTABELA);
+    else
+        id = hash(contacto->email->dominio, DIMTABELA);
+    
     aux = tabela[id];
     if (tabela[id]->proximo == NULL || strcmp(contacto->nome, aux->contacto->nome) == 0)
     {
@@ -93,11 +100,12 @@ void apaga_da_tabela(Link *tabela, Contacto *contacto)
         {
             if (strcmp(contacto->nome, aux->proximo->contacto->nome) == 0)
             {
-                free(aux->proximo);
-                aux->proximo = aux->proximo->proximo;
+                aux2 = aux->proximo;
+                aux->proximo = aux2->proximo;
+                free(aux2);
                 break;
             }
             aux = aux->proximo;
-        }
+        } 
     }
 }

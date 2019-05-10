@@ -10,6 +10,8 @@
 #define NOME 1024
 #define EMAIL 512
 #define TELEFONE 64
+#define TABN 'n'
+#define TABD 'd'
 
 void adiciona_contacto(Todos *todos);
 void lista(Todos *todos);
@@ -58,13 +60,14 @@ void adiciona_contacto(Todos *todos)
     char nome[NOME], email[EMAIL], telefone[TELEFONE];
     Contacto *novo_contacto;
     scanf("%s %s %s", nome, email, telefone);
-    if (encontra_contacto(todos->tabela_nomes, nome) != NULL)
+    if (encontra(todos->tabela_nomes, nome) != NULL)
         printf("Nome existente.\n");
     else
     {
         novo_contacto = cria_contacto(nome, email, telefone);
         introduz_lista(todos->lista, novo_contacto);
-        introduz_tab_nomes(todos->tabela_nomes, novo_contacto);
+        introduz_tabela(TABN, todos->tabela_nomes, novo_contacto);
+        introduz_tabela(TABD, todos->tabela_dominios, novo_contacto);
     }
 }
 
@@ -81,7 +84,7 @@ void procura_contacto(Todos *todos)
     char nome[NOME];
     Contacto *contacto;
     scanf("%s", nome);
-    contacto = encontra_contacto(todos->tabela_nomes, nome);
+    contacto = encontra(todos->tabela_nomes, nome);
     if (contacto != NULL)
         print_contacto(contacto);
     else
@@ -94,7 +97,7 @@ void remove_contacto(Todos *todos)
     char nome[NOME];
     Contacto *velho_contacto;
     scanf("%s", nome);
-    velho_contacto = encontra_contacto(todos->tabela_nomes, nome);
+    velho_contacto = encontra(todos->tabela_nomes, nome);
     if (velho_contacto != NULL)
         apaga_contacto(todos, velho_contacto);
     else 
@@ -107,7 +110,7 @@ void altera_email(Todos *todos)
     char nome[NOME], email[EMAIL];
     Contacto *contacto;
     scanf("%s %s", nome, email);
-    contacto = encontra_contacto(todos->tabela_nomes, nome);
+    contacto = encontra(todos->tabela_nomes, nome);
     if (contacto != NULL)
     {
         liberta_email(contacto->email);
