@@ -7,6 +7,7 @@
 #include "tabelas.h"
 #define DIMTABELA 1021
 
+/* faz a hash de uma string ate ao tamanho M */
 int hash(char *v, int M)
 {
     int h = 0, a = 127;
@@ -16,7 +17,8 @@ int hash(char *v, int M)
 }
 
 /* inicializa uma tabela generica */
-Link *init_tabela() {
+Link *init_tabela() 
+{
     int i;
     Link *tabela;
     tabela = malloc( DIMTABELA * sizeof(Link));
@@ -26,7 +28,6 @@ Link *init_tabela() {
 }
 
 /* introduz o novo contacto na tabela_nomes */
-
 void introduz_tab_nomes(Link * tabela_nomes, Contacto *novo_contacto)
 {
     int id;
@@ -40,7 +41,6 @@ void introduz_tab_nomes(Link * tabela_nomes, Contacto *novo_contacto)
 
 
 /* encontra o contacto a partir do seu nome, retornando o pointer para ele ou NULL caso nao encontre */
-
 Contacto * encontra_contacto(Link *tabela_nomes, char nome[])
 {
     int id;
@@ -62,7 +62,6 @@ void liberta_tabela(Link *tabela)
     int i;
     Link *aux;
     aux = tabela;
-
     for (i = 0; i < DIMTABELA; i++)
         if (aux[i] != NULL)
             liberta_link(aux[i]);    
@@ -77,6 +76,7 @@ void liberta_link(Link no)
     free(no);
 }
 
+/* retira um contacto de uma tabela */
 void apaga_da_tabela(Link *tabela, Contacto *contacto)
 {
     int id;

@@ -7,8 +7,6 @@
 #include "tabelas.h"
 #define DIMTABELA 1021
 
-#define TRUE 1
-#define FALSE 0
 #define NOME 1024
 #define EMAIL 512
 #define TELEFONE 64
@@ -70,6 +68,7 @@ void adiciona_contacto(Todos *todos)
     }
 }
 
+/* lista todos os contactos pela ordem em que foram inseridos */
 void lista(Todos *todos)
 {
     getchar();

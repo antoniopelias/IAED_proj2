@@ -58,21 +58,16 @@ void liberta_lista(Lista *lista)
     free(lista);
 }
 
+/* apaga da lista um contacto */
 void apaga_da_lista(Lista *lista, Contacto *contacto)
 {
     if (contacto->anterior != NULL)
-    {
         contacto->anterior->proximo = contacto->proximo;
-    } else
-    {
+    else
         lista->primeiro = contacto->proximo;
-    }
     
     if (contacto->proximo != NULL)
-    {
         contacto->proximo->anterior = contacto->anterior;
-    } else
-    {
+    else
         lista->ultimo = contacto->anterior;
-    }
 }
